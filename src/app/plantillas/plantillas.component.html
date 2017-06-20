@@ -1,0 +1,17 @@
+<h4> {{titulo}} </h4>
+<span> *ngIf="administrador" {{administrador}} </span>
+<div *ngIf="administrador; then sAdmin; else nAdmin">
+  <!--strong style="background:green"> Eres el administrador de la web app </strong-->
+</div>
+
+
+<ng-template #sAdmin>
+  <span>ng template {{administrador}} </span>
+  <strong style="background:green"> Eres el administrador de la web app </strong>
+</ng-template>
+<ng-template #nAdmin>
+  <span>ng template {{administrador}} </span>
+  <strong style="background:red"> NOOOOO eres el administrador de la web app </strong>
+</ng-template>
+<br>
+<input type="button" (click)="changeAdmin()" value="Admin">

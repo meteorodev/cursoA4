@@ -1,0 +1,26 @@
+<form #formtest="ngForm" (ngSubmit)="onSubmit(); formtest.reset();">
+  <p>
+    <label>Nombre:</label>
+    <input type="text" name="nombre" #nombre="ngModel"
+    [(ngModel)]="formm.nombre" required>
+    <span *ngIf="nombre.touched && !nombre.valid"> Nombre Incorrecto !!</span>
+  </p>
+  <p>
+    <label>Apellido:</label>
+    <input type="text" name="apellido" #nombre="ngModel" 
+    [(ngModel)]="formm.apellido" required>
+    <!--span *ngIf="apellido.touched && !apellido.valid">Nombre Incorrecto !!</span-->
+  </p>
+  <p>
+    <label>Edad:</label>
+    <input type="text" name="edad" #nombre="ngModel" 
+    [(ngModel)]="formm.edad" pattern="[0-9]+" required>
+  </p>
+  <input type="submit" value="Guardar" [disabled]="!formtest.form.valid">
+</form>
+
+<ul>
+  <li *ngFor="let arti of articulos">
+    {{arti.id}} - {{arti.title}}
+  </li>
+</ul>

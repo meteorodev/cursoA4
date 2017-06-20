@@ -1,0 +1,15 @@
+.activo
+{
+    border: 2px solid;    
+    opacity: 0.9;
+}
+
+.activo td
+{
+    border: 2px solid;    
+    opacity: 0.9;
+}
+
+.negrita{
+    font-weight: bold;
+}

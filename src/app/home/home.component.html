@@ -1,0 +1,31 @@
+<h1>{{titulo }}</h1>
+<div >
+    <h2>trabajando con PIPES </h2>
+    <span ngNonBindable=""> PIPE fullDate:  {{fecha | date:'fullDate'}}</span> <br>
+    <strong> La fecha actual es:  {{fecha | date:'fullDate'}}</strong><br>
+    
+    <span ngNonBindable=""> PIPE con formato:  {{fecha | date:'dd/MM/yy'}}</span> <br>
+    <strong> La fecha actual es:  {{fecha | date:'dd/MM/yy'}}</strong><br>
+    
+    <span ngNonBindable=""> PIPE con formato:  {{fecha | date:'dd/mm/yy'}}</span> <br>
+    <strong> La fecha actual es:  {{fecha | date:'dd/MM/yyyy'}}</strong><br><br>
+    
+    <span ngNonBindable=""> PIPE con Dienro:  {{1235.95 | currency:'USD'}}</span> <br>
+    <strong> en moneda:  {{1235.95 | currency:'USD'}}</strong><br><br>
+    
+    <span ngNonBindable=""> PIPE decimales:  {{35.9509409 | number:'3.1-2'}}</span> <br>
+    <strong> 3 enteros 2 decimales:  {{35.9509409 | number:'3.1-2'}}  --- </strong>  
+    <strong>3 enteros 3 decimales redondea:  {{35.9509409 | number:'3.1-3'}}</strong><br><br>
+    
+    <span ngNonBindable=""> PIPE Json:  {{jsonVal | json}}</span> <br>
+    <strong>json formato:  {{jsonVal | json}}</strong><br><br><br>
+
+     <span ngNonBindable> PIPE lowercase/uppercase:  {{titulo | lowercase}} <=> {{titulo | uppercase}} </span> <br>
+    <strong>el titulo :  {{titulo | lowercase}} <=> {{titulo | uppercase}} </strong><br><br>
+    <span ngNonBindable> PIPE personalizada  {{ 5 | conversor :  conversor :[1,4,5,23] }} </span> <br>
+    <strong>personalizada :  {{ 5 | conversor :[1,4,5,23] }} </strong><br><br>
+</div>
+<input type="text" [(ngModel)]="nombre" />
+<button (click)="saludar(nombre)">Listo!!</button>
+<h3>{{saludo}}</h3>
+parametro desde la url: {{parametro}}

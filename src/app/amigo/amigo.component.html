@@ -1,0 +1,65 @@
+<h1>Amigo component</h1>
+<h3>Cmabiar color favorito databinding</h3>
+
+<ul >
+  <!-- debe empezar con la clase css que deseo hacer binding -->
+  <li *ngFor="let amigo of listAmigos" [ngClass]="{ 
+    activo: amigo.selecionado == true,
+    negrita: 1==1
+    }"  
+    > {{amigo.nombre}} {{amigo.apellido}} edad: {{amigo.edad}} 
+      <p *ngIf=" amigo.habla==true" >Es adulto</p>
+      <p *ngIf=" amigo.habla==false" >Es bebe</p>
+      <input type="text" [(ngModel)]="amigo.color" />
+      <p [ngStyle]="{'background':amigo.color,'color':'white'}">Color favorito {{amigo.color}}</p>
+      <button (click)="selecAmigo(amigo)" [disabled]="amigo.selecionado">Seleccioname!!</button>
+  </li>
+</ul>
+ <table>
+  <thead>
+    <th>Nombre:</th>
+    <th>Apellido:</th>
+    <th>Edad:</th>
+    <th>Habla?:</th>
+    <th>Color:</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let amigo of listAmigos " [class.activo]="amigo.selecionado == true" >
+    <td [ngStyle]="{'border-color':amigo.color}">{{amigo.nombre}}</td>
+    <td [ngStyle]="{'border-color':amigo.color}">{{amigo.apellido}}</td>
+    <td [ngStyle]="{'border-color':amigo.color}">{{amigo.edad}}</td>
+    <td [ngStyle]="{'border-color':amigo.color}">
+      <p *ngIf=" amigo.habla==true" >Si</p>
+      <p *ngIf=" amigo.habla==false" >No</p>
+    </td>
+    <td [ngStyle]="{'background':amigo.color,'color':'white'} ">
+      <input type="text" [(ngModel)]="amigo.color" />
+       {{amigo.color}}
+    </td>
+    <td [ngStyle]="{'border-color':amigo.color}">
+      <button (click)="selecAmigo(amigo)" [disabled]="amigo.selecionado">Seleccioname!!</button>
+    </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Seleccionar amigo</h3> <button (click)="listaramigos()">ver log</button>
+<table>
+  <thead>
+    <th>Nombre:</th>
+    <th>Apellido:</th>
+    <th>Edad:</th>
+    <th>Habla?:</th>
+    <th>Color:</th>
+  </thead>
+  <tbody>
+    <td>{{amigoSelec.nombre}}</td>
+    <td>{{amigoSelec.apellido}}</td>
+    <td>{{amigoSelec.edad}}</td>
+    <td>
+      <p *ngIf=" amigoSelec.habla==true" >Si</p>
+      <p *ngIf=" amigoSelec.habla==false" >No</p>
+      </td>
+    <td [ngStyle]="{'background':amigoSelec.color,'color':'white'} ">{{amigoSelec.color}} </td>
+  </tbody>
+</table>

@@ -1,0 +1,30 @@
+ <table>
+  <thead>
+    <th>Depende</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dep of depende " >
+      <td >{{dep}}</td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="parametro">
+  Parametro desde la url : {{parametro}}
+</div>
+<div *ngIf="!parametro">
+  <button (click)="redirigir()"> Redirigir desde aquí</button>
+</div>
+<button (click)="toHome()"> Ir al Home </button>
+<hr>
+<input type="text" [(ngModel)] = "prendaGuardar"><button (click)="guardaPrenda(prendaGuardar)">Guardar</button>
+<table>
+  <thead>
+    <th>Lista de prendas</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prenda of listaPrendas; let i = index" >
+      <td >{{prenda}}</td>
+      <td ><button (click)="elimiaPrenda(i)">Eliminar</button></td>
+    </tr>
+  </tbody>
+</table>
